@@ -13,7 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class UserController {
     @GetMapping("/user")
     public ModelAndView showForm() {
-        ModelAndView modelAndView = new ModelAndView("/index");
+        ModelAndView modelAndView = new ModelAndView("/exercise1/index");
         modelAndView.addObject("user", new User());
         return modelAndView;
     }
@@ -22,8 +22,8 @@ public class UserController {
     public ModelAndView checkValidation(@Validated @ModelAttribute("user") User user,
                                         BindingResult bindingResult) {
         if (bindingResult.hasFieldErrors()) {
-            return new ModelAndView("/index");
+            return new ModelAndView("/exercise1/index");
         }
-        return new ModelAndView("/result");
+        return new ModelAndView("/exercise1/result");
     }
 }
